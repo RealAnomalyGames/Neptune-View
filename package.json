@@ -1,0 +1,33 @@
+{
+  "name": "neptune-view",
+  "description": "Neptune View - an algorithm-free video sharing platform by Neptune Corporation.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^7.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RealAnomalyGames/Neptune-View.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RealAnomalyGames/Neptune-View/issues"
+  },
+  "homepage": "https://github.com/RealAnomalyGames/Neptune-View#readme"
+}
