@@ -31,7 +31,13 @@ export function Home(): string {
                     </a>
 
                     <div class="video-meta">
-                        ${video.channelName}
+                        <a
+                            href="/channels/${video.channelId}"
+                            data-link
+                            class="video-channel"
+                        >
+                            ${video.channelName}
+                        </a>
                     </div>
 
                     <div class="video-stats">

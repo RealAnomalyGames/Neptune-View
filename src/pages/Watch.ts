@@ -162,7 +162,7 @@ export function Watch(videoId: string): string {
                 <div class="channel-info">
 
                     <a
-                        href="/channel/${video.channelId}"
+                        href="/channels/${video.channelId}"
                         data-link
                         class="channel-name"
                     >

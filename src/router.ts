@@ -8,6 +8,12 @@ import { Search } from "./pages/Search";
 import { Watch } from "./pages/Watch";
 import { Category } from "./pages/Category";
 import { Tags } from "./pages/Tags";
+import {
+    Channel,
+    setupChannelEvents
+} from "./pages/Channel";
+import { ChannelAbout } from "./pages/ChannelAbout";
+import { Subscriptions } from "./pages/Subscriptions";
 
 type Page = () => string;
 
@@ -17,6 +23,7 @@ const routes: Record<string, Page> = {
     "/channels": Channels,
     "/categories": Categories,
     "/tags": Tags,
+    "/subscriptions": Subscriptions,
     "/community": Community,
     "/upload": Upload,
     "/search": Search
@@ -54,6 +61,37 @@ export function router(): void {
         );
 
         app.innerHTML = Category(categoryId);
+
+        updateActiveNavigation();
+
+        return;
+    }
+
+        if (path.startsWith("/channels/") &&
+        path.endsWith("/about")) {
+
+        const channelId = decodeURIComponent(
+            path
+                .substring("/channels/".length)
+                .replace(/\/about$/, "")
+        );
+
+        app.innerHTML =
+            ChannelAbout(channelId);
+
+        updateActiveNavigation();
+
+        return;
+    }
+
+    if (path.startsWith("/channels/")) {
+        const channelId = decodeURIComponent(
+            path.substring("/channels/".length)
+        );
+
+        app.innerHTML = Channel(channelId);
+
+        setupChannelEvents();
 
         updateActiveNavigation();
 

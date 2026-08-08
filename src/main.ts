@@ -1,6 +1,13 @@
 import "./styles/main.css";
 import { router } from "./router";
 
+window.addEventListener(
+    "neptune-subscription-changed",
+    () => {
+        router();
+    }
+);
+
 const app = document.querySelector<HTMLDivElement>("#app");
 
 if (!app) {
@@ -35,6 +42,7 @@ app.innerHTML = `
             <a href="/tags" data-link>Tags</a>
             <a href="/categories" data-link>Categories</a>
             <a href="/community" data-link>Community</a>
+            <a href="/subscriptions"data-link>Subscriptions</a>
             <a href="/upload" data-link>Upload</a>
         </nav>
 
