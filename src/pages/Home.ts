@@ -1,11 +1,57 @@
+import { videos } from "../data/videos";
+import {
+    formatDuration,
+    formatViews,
+    getLatestVideos
+} from "../data/videoUtils";
+
 export function Home(): string {
+    const latestVideos = getLatestVideos(videos).slice(0, 3);
+
+    const videoCards = latestVideos
+        .map(
+            (video) => `
+                <article class="video-card">
+
+                    <div class="thumbnail">
+                        <span>
+                            No Thumbnail
+                        </span>
+
+                        <span class="duration">
+                            ${formatDuration(video.duration)}
+                        </span>
+                    </div>
+
+                    <a
+                        href="/watch/${video.id}"
+                        class="video-title"
+                    >
+                        ${video.title}
+                    </a>
+
+                    <div class="video-meta">
+                        ${video.channelName}
+                    </div>
+
+                    <div class="video-stats">
+                        ${formatViews(video.statistics.views)}
+                    </div>
+
+                </article>
+            `
+        )
+        .join("");
+
     return `
         <section class="welcome-box">
+
             <div class="box-title">
                 Welcome to Neptune View™
             </div>
 
             <div class="box-content">
+
                 <h1>Welcome!</h1>
 
                 <p>
@@ -20,80 +66,44 @@ export function Home(): string {
                 </p>
 
                 <div class="button-row">
+
                     <a href="/videos" data-link>
-                        <button>Browse Videos</button>
+                        <button>
+                            Browse Videos
+                        </button>
                     </a>
 
                     <a href="/channels" data-link>
-                        <button>Explore Channels</button>
+                        <button>
+                            Explore Channels
+                        </button>
                     </a>
+
                 </div>
+
             </div>
+
         </section>
 
         <section class="video-section">
+
             <div class="section-header">
+
                 Latest Videos
-                <a href="/videos" data-link>View All →</a>
+
+                <a
+                    href="/videos"
+                    data-link
+                >
+                    View All →
+                </a>
+
             </div>
 
             <div class="video-grid">
-
-                <article class="video-card">
-                    <div class="thumbnail">
-                        <span>No Thumbnail</span>
-                    </div>
-
-                    <a href="/watch/example" class="video-title">
-                        Welcome to Neptune View
-                    </a>
-
-                    <div class="video-meta">
-                        Neptune Corporation™
-                    </div>
-
-                    <div class="video-stats">
-                        0 views · Just now
-                    </div>
-                </article>
-
-                <article class="video-card">
-                    <div class="thumbnail">
-                        <span>No Thumbnail</span>
-                    </div>
-
-                    <a href="/watch/example-2" class="video-title">
-                        My First Video
-                    </a>
-
-                    <div class="video-meta">
-                        Example Channel
-                    </div>
-
-                    <div class="video-stats">
-                        0 views · Just now
-                    </div>
-                </article>
-
-                <article class="video-card">
-                    <div class="thumbnail">
-                        <span>No Thumbnail</span>
-                    </div>
-
-                    <a href="/watch/example-3" class="video-title">
-                        Something Interesting
-                    </a>
-
-                    <div class="video-meta">
-                        Example Channel
-                    </div>
-
-                    <div class="video-stats">
-                        0 views · Just now
-                    </div>
-                </article>
-
+                ${videoCards}
             </div>
+
         </section>
     `;
 }

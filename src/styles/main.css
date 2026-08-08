@@ -384,3 +384,259 @@ button:active {
     font-weight: bold;
     color: #426f98;
 }
+
+.thumbnail {
+    position: relative;
+}
+
+.duration {
+    position: absolute;
+
+    right: 3px;
+    bottom: 3px;
+
+    padding: 2px 4px;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    color: #ffffff;
+
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.video-sort-links {
+    margin-top: 12px;
+    padding: 7px;
+
+    background: #edf2f6;
+    border: 1px solid #c4ced7;
+
+    font-size: 11px;
+}
+
+.video-sort-links a {
+    margin: 0 5px;
+}
+
+.empty-state {
+    padding: 25px;
+    text-align: center;
+
+    color: #666;
+}
+
+.empty-state strong {
+    color: #444;
+}
+
+/* Watch Page */
+
+.watch-page {
+    width: 100%;
+}
+
+.video-player {
+    width: 100%;
+    background: #111111;
+    border: 1px solid #333333;
+}
+
+.video-player video {
+    display: block;
+
+    width: 100%;
+    max-height: 500px;
+
+    background: #000000;
+}
+
+.video-information {
+    padding: 10px 0;
+    border-bottom: 1px solid #c5cdd4;
+}
+
+.watch-title {
+    margin: 0 0 5px;
+
+    color: #174a7e;
+    font-size: 21px;
+}
+
+.watch-stats {
+    color: #777777;
+    font-size: 11px;
+}
+
+.watch-actions {
+    display: flex;
+    gap: 5px;
+
+    margin-top: 9px;
+}
+
+.channel-panel {
+    display: flex;
+    align-items: center;
+
+    margin: 10px 0;
+
+    padding: 9px;
+
+    background: #edf2f6;
+
+    border: 1px solid #c2ccd5;
+}
+
+.channel-avatar {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 9px;
+
+    background: #426f98;
+
+    border: 1px solid #315875;
+
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.channel-name {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.channel-label {
+    margin-top: 2px;
+
+    color: #777777;
+    font-size: 10px;
+}
+
+.description-box,
+.comments-box {
+    margin-bottom: 12px;
+
+    border: 1px solid #a9b6c2;
+}
+
+.description-box .box-content,
+.comments-box .box-content {
+    line-height: 1.5;
+}
+
+.video-tags {
+    margin-top: 10px;
+
+    color: #555555;
+}
+
+.video-tags a {
+    margin-left: 4px;
+}
+
+.metadata-list {
+    margin: 0;
+    padding: 0;
+}
+
+.metadata-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+
+    padding: 5px 0;
+
+    border-bottom: 1px solid #e0e4e8;
+}
+
+.metadata-label {
+    font-weight: bold;
+    color: #555555;
+}
+
+.metadata-value {
+    color: #222222;
+}
+
+.category-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+.category-card {
+    display: block;
+
+    padding: 10px;
+
+    background: #eef3f7;
+
+    border: 1px solid #aebbc7;
+
+    text-decoration: none;
+
+    color: #222222;
+}
+
+.category-card:hover {
+    background: #dce8f2;
+}
+
+.category-name {
+    margin-bottom: 5px;
+
+    color: #174a7e;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.category-description {
+    color: #666666;
+
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.tags-box {
+    margin-top: 12px;
+
+    padding: 10px;
+
+    background: #f1f4f7;
+
+    border: 1px solid #b8c3cc;
+}
+
+.tag-link {
+    display: inline-block;
+
+    margin: 3px;
+    padding: 4px 7px;
+
+    background: #ffffff;
+
+    border: 1px solid #aeb9c2;
+
+    color: #174a7e;
+
+    font-size: 11px;
+
+    text-decoration: none;
+}
+
+.tag-link:hover {
+    background: #e5edf4;
+}

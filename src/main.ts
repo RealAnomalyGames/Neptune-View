@@ -32,6 +32,7 @@ app.innerHTML = `
             <a href="/" data-link>Home</a>
             <a href="/videos" data-link>Videos</a>
             <a href="/channels" data-link>Channels</a>
+            <a href="/tags" data-link>Tags</a>
             <a href="/categories" data-link>Categories</a>
             <a href="/community" data-link>Community</a>
             <a href="/upload" data-link>Upload</a>
@@ -102,10 +103,6 @@ app.innerHTML = `
 
                         <a href="/categories/music" data-link>
                             Music
-                        </a>
-
-                        <a href="/categories/animation" data-link>
-                            Animation
                         </a>
 
                         <a href="/categories/comedy" data-link>
