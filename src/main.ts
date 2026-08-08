@@ -1,4 +1,5 @@
 import "./styles/main.css";
+import { router } from "./router";
 
 const app = document.querySelector<HTMLDivElement>("#app");
 
@@ -11,8 +12,13 @@ app.innerHTML = `
 
         <header class="site-header">
             <div class="logo-area">
-                <div class="logo">Neptune View<span>™</span></div>
-                <div class="tagline">Videos. People. You.</div>
+                <div class="logo">
+                    Neptune View<span>™</span>
+                </div>
+
+                <div class="tagline">
+                    Videos. People. You.
+                </div>
             </div>
 
             <div class="account-area">
@@ -23,123 +29,36 @@ app.innerHTML = `
         </header>
 
         <nav class="main-nav">
-            <a href="#" class="active">Home</a>
-            <a href="#">Videos</a>
-            <a href="#">Channels</a>
-            <a href="#">Categories</a>
-            <a href="#">Community</a>
-            <a href="#">Upload</a>
+            <a href="/" data-link>Home</a>
+            <a href="/videos" data-link>Videos</a>
+            <a href="/channels" data-link>Channels</a>
+            <a href="/categories" data-link>Categories</a>
+            <a href="/community" data-link>Community</a>
+            <a href="/upload" data-link>Upload</a>
         </nav>
 
         <div class="search-bar">
-            <form>
-                <label for="search">Search Neptune View:</label>
+            <form id="search-form">
+                <label for="search">
+                    Search Neptune View:
+                </label>
+
                 <input
                     id="search"
+                    name="q"
                     type="text"
                     placeholder="Search videos..."
                 >
-                <button type="submit">Search</button>
+
+                <button type="submit">
+                    Search
+                </button>
             </form>
         </div>
 
         <div class="content-layout">
 
-            <main class="main-content">
-
-                <section class="welcome-box">
-                    <div class="box-title">
-                        Welcome to Neptune View™
-                    </div>
-
-                    <div class="box-content">
-                        <h1>Welcome!</h1>
-
-                        <p>
-                            Neptune View is a video-sharing website
-                            where <strong>you decide what you watch.</strong>
-                        </p>
-
-                        <p>
-                            No recommendation algorithm.
-                            No endless feed.
-                            Just videos, creators, and people.
-                        </p>
-
-                        <div class="button-row">
-                            <button>Browse Videos</button>
-                            <button>Explore Channels</button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="video-section">
-
-                    <div class="section-header">
-                        Latest Videos
-                        <a href="#">View All →</a>
-                    </div>
-
-                    <div class="video-grid">
-
-                        <article class="video-card">
-                            <div class="thumbnail">
-                                <span>No Thumbnail</span>
-                            </div>
-
-                            <a href="#" class="video-title">
-                                Welcome to Neptune View
-                            </a>
-
-                            <div class="video-meta">
-                                Neptune Corporation™
-                            </div>
-
-                            <div class="video-stats">
-                                0 views · Just now
-                            </div>
-                        </article>
-
-                        <article class="video-card">
-                            <div class="thumbnail">
-                                <span>No Thumbnail</span>
-                            </div>
-
-                            <a href="#" class="video-title">
-                                My First Video
-                            </a>
-
-                            <div class="video-meta">
-                                Example Channel
-                            </div>
-
-                            <div class="video-stats">
-                                0 views · Just now
-                            </div>
-                        </article>
-
-                        <article class="video-card">
-                            <div class="thumbnail">
-                                <span>No Thumbnail</span>
-                            </div>
-
-                            <a href="#" class="video-title">
-                                Something Interesting
-                            </a>
-
-                            <div class="video-meta">
-                                Example Channel
-                            </div>
-
-                            <div class="video-stats">
-                                0 views · Just now
-                            </div>
-                        </article>
-
-                    </div>
-                </section>
-
-            </main>
+            <main class="main-content" id="page-content"></main>
 
             <aside class="sidebar">
 
@@ -149,11 +68,25 @@ app.innerHTML = `
                     </div>
 
                     <div class="side-links">
-                        <a href="#">Latest Videos</a>
-                        <a href="#">Most Viewed</a>
-                        <a href="#">Most Liked</a>
-                        <a href="#">Most Commented</a>
-                        <a href="#">Random Video</a>
+                        <a href="/videos" data-link>
+                            Latest Videos
+                        </a>
+
+                        <a href="/videos?sort=popular" data-link>
+                            Most Viewed
+                        </a>
+
+                        <a href="/videos?sort=liked" data-link>
+                            Most Liked
+                        </a>
+
+                        <a href="/videos?sort=commented" data-link>
+                            Most Commented
+                        </a>
+
+                        <a href="/random" data-link>
+                            Random Video
+                        </a>
                     </div>
                 </section>
 
@@ -163,14 +96,37 @@ app.innerHTML = `
                     </div>
 
                     <div class="side-links">
-                        <a href="#">Gaming</a>
-                        <a href="#">Music</a>
-                        <a href="#">Animation</a>
-                        <a href="#">Comedy</a>
-                        <a href="#">Technology</a>
-                        <a href="#">Education</a>
-                        <a href="#">Vlogs</a>
-                        <a href="#">Other</a>
+                        <a href="/categories/gaming" data-link>
+                            Gaming
+                        </a>
+
+                        <a href="/categories/music" data-link>
+                            Music
+                        </a>
+
+                        <a href="/categories/animation" data-link>
+                            Animation
+                        </a>
+
+                        <a href="/categories/comedy" data-link>
+                            Comedy
+                        </a>
+
+                        <a href="/categories/technology" data-link>
+                            Technology
+                        </a>
+
+                        <a href="/categories/education" data-link>
+                            Education
+                        </a>
+
+                        <a href="/categories/vlogs" data-link>
+                            Vlogs
+                        </a>
+
+                        <a href="/categories/other" data-link>
+                            Other
+                        </a>
                     </div>
                 </section>
 
@@ -185,7 +141,9 @@ app.innerHTML = `
                             deciding what you should watch.
                         </p>
 
-                        <a href="#">Learn More →</a>
+                        <a href="/">
+                            Learn More →
+                        </a>
                     </div>
                 </section>
 
@@ -207,7 +165,8 @@ app.innerHTML = `
             </div>
 
             <p>
-                © 2026 Neptune Corporation™. Neptune View™.
+                © 2026 Neptune Corporation™.
+                Neptune View™.
             </p>
 
             <p class="footer-note">
@@ -217,3 +176,67 @@ app.innerHTML = `
 
     </div>
 `;
+
+function renderPage(): void {
+    const pageContent =
+        document.querySelector<HTMLDivElement>("#page-content");
+
+    if (!pageContent) {
+        throw new Error("Page content container not found.");
+    }
+
+    router();
+
+    const appContent =
+        document.querySelector<HTMLDivElement>("#app");
+
+    if (!appContent) {
+        throw new Error("Application root not found.");
+    }
+}
+
+function navigate(url: string): void {
+    window.history.pushState({}, "", url);
+    renderPage();
+}
+
+document.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement;
+    const link = target.closest<HTMLAnchorElement>("a[data-link]");
+
+    if (!link) {
+        return;
+    }
+
+    const href = link.getAttribute("href");
+
+    if (!href || href.startsWith("#")) {
+        return;
+    }
+
+    event.preventDefault();
+    navigate(href);
+});
+
+window.addEventListener("popstate", () => {
+    renderPage();
+});
+
+const searchForm =
+    document.querySelector<HTMLFormElement>("#search-form");
+
+searchForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(searchForm);
+    const query = String(formData.get("q") ?? "").trim();
+
+    if (!query) {
+        navigate("/search");
+        return;
+    }
+
+    navigate(`/search?q=${encodeURIComponent(query)}`);
+});
+
+renderPage();
