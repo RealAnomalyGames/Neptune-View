@@ -1,12 +1,4 @@
-import "./styles/main.css";
-
-const app = document.querySelector<HTMLDivElement>("#app");
-
-if (!app) {
-    throw new Error("Application root not found.");
-}
-
-app.innerHTML = `
+(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))t(e);new MutationObserver(e=>{for(const a of e)if(a.type==="childList")for(const s of a.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&t(s)}).observe(document,{childList:!0,subtree:!0});function r(e){const a={};return e.integrity&&(a.integrity=e.integrity),e.referrerPolicy&&(a.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?a.credentials="include":e.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function t(e){if(e.ep)return;e.ep=!0;const a=r(e);fetch(e.href,a)}})();const o=document.querySelector("#app");if(!o)throw new Error("Application root not found.");o.innerHTML=`
     <div class="site">
 
         <header class="site-header">
