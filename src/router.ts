@@ -1,11 +1,19 @@
+import { videos } from "./data/videos";
 import { Home } from "./pages/Home";
 import { Videos } from "./pages/Videos";
 import { Channels } from "./pages/Channels";
 import { Categories } from "./pages/Categories";
 import { Community } from "./pages/Community";
 import { Upload } from "./pages/Upload";
-import { Search } from "./pages/Search";
-import { Watch } from "./pages/Watch";
+import {
+    Search,
+    setupSearchEvents
+} from "./pages/Search";
+import {
+    Watch,
+    setupCommentEvents,
+    setupVideoReactionEvents
+} from "./pages/Watch";
 import { Category } from "./pages/Category";
 import { Tags } from "./pages/Tags";
 import {
@@ -14,6 +22,8 @@ import {
 } from "./pages/Channel";
 import { ChannelAbout } from "./pages/ChannelAbout";
 import { Subscriptions } from "./pages/Subscriptions";
+import { Favorites } from "./pages/Favorites";
+import { RandomVideo } from "./pages/RandomVideo";
 
 type Page = () => string;
 
@@ -24,9 +34,9 @@ const routes: Record<string, Page> = {
     "/categories": Categories,
     "/tags": Tags,
     "/subscriptions": Subscriptions,
+    "/favorites": Favorites,
     "/community": Community,
-    "/upload": Upload,
-    "/search": Search
+    "/upload": Upload
 };
 
 export function router(): void {
@@ -43,12 +53,63 @@ export function router(): void {
 
     const path = window.location.pathname;
 
+    if (path === "/random") {
+        if (videos.length === 0) {
+            app.innerHTML = RandomVideo();
+
+            updateActiveNavigation();
+
+            return;
+        }
+
+        const randomIndex =
+            Math.floor(
+                Math.random() * videos.length
+            );
+
+        const randomVideo =
+            videos[randomIndex];
+
+        window.history.pushState(
+            {},
+            "",
+            `/watch/${randomVideo.id}`
+        );
+
+        router();
+
+        return;
+    }
+
+    if (path === "/search") {
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+        const query =
+            params.get("q") ?? "";
+
+        app.innerHTML =
+            Search(query);
+
+        setupSearchEvents();
+
+        updateActiveNavigation();
+
+        return;
+    }
+
     if (path.startsWith("/watch/")) {
         const videoId = decodeURIComponent(
             path.substring("/watch/".length)
         );
 
         app.innerHTML = Watch(videoId);
+
+        setupCommentEvents();
+
+        setupVideoReactionEvents();
 
         updateActiveNavigation();
 

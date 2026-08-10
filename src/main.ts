@@ -8,6 +8,27 @@ window.addEventListener(
     }
 );
 
+window.addEventListener(
+    "neptune-comment-changed",
+    () => {
+        router();
+    }
+);
+
+window.addEventListener(
+    "neptune-reaction-changed",
+    () => {
+        router();
+    }
+);
+
+window.addEventListener(
+    "neptune-navigation",
+    () => {
+        router();
+    }
+);
+
 const app = document.querySelector<HTMLDivElement>("#app");
 
 if (!app) {
@@ -43,6 +64,7 @@ app.innerHTML = `
             <a href="/categories" data-link>Categories</a>
             <a href="/community" data-link>Community</a>
             <a href="/subscriptions"data-link>Subscriptions</a>
+            <a href="/favorites"data-link>Favorites</a>
             <a href="/upload" data-link>Upload</a>
         </nav>
 
@@ -244,4 +266,48 @@ searchForm?.addEventListener("submit", (event) => {
     navigate(`/search?q=${encodeURIComponent(query)}`);
 });
 
+function setupHeaderSearch(): void {
+    const form =
+        document.querySelector<HTMLFormElement>(
+            "#header-search-form"
+        );
+
+    const input =
+        document.querySelector<HTMLInputElement>(
+            "#header-search-input"
+        );
+
+    if (!form || !input) {
+        return;
+    }
+
+    form.addEventListener(
+        "submit",
+        (event) => {
+            event.preventDefault();
+
+            const query =
+                input.value.trim();
+
+            if (!query) {
+                return;
+            }
+
+            window.history.pushState(
+                {},
+                "",
+                `/search?q=${encodeURIComponent(
+                    query
+                )}`
+            );
+
+            window.dispatchEvent(
+                new Event("neptune-navigation")
+            );
+        }
+    );
+}
+
 renderPage();
+
+setupHeaderSearch();

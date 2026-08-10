@@ -91,6 +91,32 @@ export function Home(): string {
 
         </section>
 
+        <div class="random-video-box">
+
+            <div class="random-video-title">
+                Feeling Indecisive?
+            </div>
+
+            <div class="random-video-content">
+
+                <p>
+                    Don't know what to watch?
+                    Let Neptune View pick something
+                    completely at random.
+                </p>
+
+                <a
+                    href="/random"
+                    data-link
+                    class="random-video-button"
+                >
+                    🎲 Random Video
+                </a>
+
+            </div>
+
+        </div>
+
         <section class="video-section">
 
             <div class="section-header">
