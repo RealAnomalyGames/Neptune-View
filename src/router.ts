@@ -1,3 +1,5 @@
+const BASE_PATH = "/Neptune-View";
+
 import { videos } from "./data/videos";
 import { Home } from "./pages/Home";
 import { Videos } from "./pages/Videos";
@@ -51,7 +53,7 @@ export function router(): void {
         );
     }
 
-    const basePath = "/neptune-view";
+    const basePath = "/Neptune-View/";
 
     const rawPath =
         window.location.pathname;
