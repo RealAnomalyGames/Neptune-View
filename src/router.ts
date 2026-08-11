@@ -1,5 +1,3 @@
-const BASE_PATH = "/Neptune-View";
-
 import { videos } from "./data/videos";
 import { Home } from "./pages/Home";
 import { Videos } from "./pages/Videos";
@@ -29,6 +27,8 @@ import { RandomVideo } from "./pages/RandomVideo";
 
 type Page = () => string;
 
+const BASE_PATH = "/Neptune-View";
+
 const routes: Record<string, Page> = {
     "/": Home,
     "/videos": Videos,
@@ -43,7 +43,7 @@ const routes: Record<string, Page> = {
 
 export function router(): void {
     const app =
-        document.querySelector<HTMLDivElement>(
+        document.querySelector(
             "#page-content"
         );
 
@@ -53,17 +53,19 @@ export function router(): void {
         );
     }
 
-    const basePath = "/Neptune-View/";
-
     const rawPath =
         window.location.pathname;
 
     const path =
-        rawPath.startsWith(basePath)
+        rawPath.startsWith(BASE_PATH)
             ? rawPath.substring(
-                basePath.length
+                BASE_PATH.length
             ) || "/"
             : rawPath;
+
+    /*
+     * Random Video
+     */
 
     if (path === "/random") {
         if (videos.length === 0) {
@@ -85,13 +87,17 @@ export function router(): void {
         window.history.pushState(
             {},
             "",
-            `/watch/${randomVideo.id}`
+            `${BASE_PATH}/watch/${randomVideo.id}`
         );
 
         router();
 
         return;
     }
+
+    /*
+     * Search
+     */
 
     if (path === "/search") {
         const params =
@@ -112,12 +118,20 @@ export function router(): void {
         return;
     }
 
-    if (path.startsWith("/watch/")) {
-        const videoId = decodeURIComponent(
-            path.substring("/watch/".length)
-        );
+    /*
+     * Watch
+     */
 
-        app.innerHTML = Watch(videoId);
+    if (path.startsWith("/watch/")) {
+        const videoId =
+            decodeURIComponent(
+                path.substring(
+                    "/watch/".length
+                )
+            );
+
+        app.innerHTML =
+            Watch(videoId);
 
         setupCommentEvents();
 
@@ -128,26 +142,45 @@ export function router(): void {
         return;
     }
 
-    if (path.startsWith("/categories/")) {
-        const categoryId = decodeURIComponent(
-            path.substring("/categories/".length)
-        );
+    /*
+     * Category
+     */
 
-        app.innerHTML = Category(categoryId);
+    if (path.startsWith("/categories/")) {
+        const categoryId =
+            decodeURIComponent(
+                path.substring(
+                    "/categories/".length
+                )
+            );
+
+        app.innerHTML =
+            Category(categoryId);
 
         updateActiveNavigation();
 
         return;
     }
 
-        if (path.startsWith("/channels/") &&
-        path.endsWith("/about")) {
+    /*
+     * Channel About
+     */
 
-        const channelId = decodeURIComponent(
-            path
-                .substring("/channels/".length)
-                .replace(/\/about$/, "")
-        );
+    if (
+        path.startsWith("/channels/") &&
+        path.endsWith("/about")
+    ) {
+        const channelId =
+            decodeURIComponent(
+                path
+                    .substring(
+                        "/channels/".length
+                    )
+                    .replace(
+                        /\/about$/,
+                        ""
+                    )
+            );
 
         app.innerHTML =
             ChannelAbout(channelId);
@@ -157,12 +190,20 @@ export function router(): void {
         return;
     }
 
-    if (path.startsWith("/channels/")) {
-        const channelId = decodeURIComponent(
-            path.substring("/channels/".length)
-        );
+    /*
+     * Channel
+     */
 
-        app.innerHTML = Channel(channelId);
+    if (path.startsWith("/channels/")) {
+        const channelId =
+            decodeURIComponent(
+                path.substring(
+                    "/channels/".length
+                )
+            );
+
+        app.innerHTML =
+            Channel(channelId);
 
         setupChannelEvents();
 
@@ -171,9 +212,15 @@ export function router(): void {
         return;
     }
 
-    const page = routes[path] ?? NotFound;
+    /*
+     * Standard pages
+     */
 
-    app.innerHTML = page();
+    const page =
+        routes[path] ?? NotFound;
+
+    app.innerHTML =
+        page();
 
     updateActiveNavigation();
 }
@@ -196,7 +243,10 @@ function NotFound(): string {
                 </p>
 
                 <p>
-                    <a href="/" data-link>
+                    <a
+                        href="${BASE_PATH}/"
+                        data-link
+                    >
                         Return to Neptune View™
                     </a>
                 </p>
