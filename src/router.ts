@@ -51,7 +51,17 @@ export function router(): void {
         );
     }
 
-    const path = window.location.pathname;
+    const basePath = "/neptune-view";
+
+    const rawPath =
+        window.location.pathname;
+
+    const path =
+        rawPath.startsWith(basePath)
+            ? rawPath.substring(
+                basePath.length
+            ) || "/"
+            : rawPath;
 
     if (path === "/random") {
         if (videos.length === 0) {
