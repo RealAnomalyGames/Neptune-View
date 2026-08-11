@@ -1,4 +1,4 @@
-(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))s(a);new MutationObserver(a=>{for(const i of a)if(i.type==="childList")for(const l of i.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&s(l)}).observe(document,{childList:!0,subtree:!0});function n(a){const i={};return a.integrity&&(i.integrity=a.integrity),a.referrerPolicy&&(i.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?i.credentials="include":a.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function s(a){if(a.ep)return;a.ep=!0;const i=n(a);fetch(a.href,i)}})();const c=[{id:"welcome-to-neptune-view",title:"Welcome to Neptune View",description:"Welcome to Neptune View™, a video-sharing website where you decide what you watch.",channelId:"neptune-corporation",channelName:"Neptune Corporation™",videoUrl:"/videos/welcome.mp4",thumbnailUrl:"/images/thumbnails/welcome.jpg",duration:92,category:"technology",tags:["neptune","neptune view","announcement","technology"],language:"en",resolution:{width:1280,height:720},statistics:{views:142,likes:23,comments:7},uploadedAt:"2026-08-07T00:00:00Z",updatedAt:"2026-08-07T00:00:00Z",visibility:"public",rating:"all-ages",license:"neptune-standard"},{id:"my-first-video",title:"My First Video",description:"An example video uploaded to Neptune View™.",channelId:"example-channel",channelName:"Example Channel",videoUrl:"/videos/example.mp4",thumbnailUrl:"/images/thumbnails/example.jpg",duration:157,category:"other",tags:["first video","example"],language:"en",resolution:{width:1920,height:1080},statistics:{views:83,likes:31,comments:12},uploadedAt:"2026-08-07T00:05:00Z",updatedAt:"2026-08-07T00:05:00Z",visibility:"public",rating:"all-ages",license:"neptune-standard"},{id:"something-interesting",title:"Something Interesting",description:"Just a random example video for Neptune View™.",channelId:"example-channel",channelName:"Example Channel",videoUrl:"/videos/interesting.mp4",thumbnailUrl:"/images/thumbnails/interesting.jpg",duration:245,category:"other",tags:["random","interesting"],language:"en",resolution:{width:1280,height:720},statistics:{views:219,likes:18,comments:4},uploadedAt:"2026-08-07T00:10:00Z",updatedAt:"2026-08-07T00:10:00Z",visibility:"public",rating:"all-ages",license:"neptune-standard"}];function u(t){const e=Math.floor(t/3600),n=Math.floor(t%3600/60),a=(t%60).toString().padStart(2,"0");return e>0?`${e}:${n.toString().padStart(2,"0")}:${a}`:`${n}:${a}`}function v(t){return`${t.toLocaleString()} views`}function M(t){return new Date(t).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"})}function g(t){return[...t].sort((e,n)=>new Date(n.uploadedAt).getTime()-new Date(e.uploadedAt).getTime())}function q(t){return[...t].sort((e,n)=>n.statistics.views-e.statistics.views)}function D(t){return[...t].sort((e,n)=>n.statistics.likes-e.statistics.likes)}function F(t){return[...t].sort((e,n)=>n.statistics.comments-e.statistics.comments)}function B(t,e){return t.find(n=>n.id===e)}function O(t,e){return t.filter(n=>n.category===e)}function j(t){const e=new Set;for(const n of t)for(const s of n.tags)e.add(s);return Array.from(e).sort((n,s)=>n.localeCompare(s))}function P(){return`
+(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))s(a);new MutationObserver(a=>{for(const i of a)if(i.type==="childList")for(const r of i.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&s(r)}).observe(document,{childList:!0,subtree:!0});function n(a){const i={};return a.integrity&&(i.integrity=a.integrity),a.referrerPolicy&&(i.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?i.credentials="include":a.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function s(a){if(a.ep)return;a.ep=!0;const i=n(a);fetch(a.href,i)}})();const c=[{id:"welcome-to-neptune-view",title:"Welcome to Neptune View",description:"Welcome to Neptune View™, a video-sharing website where you decide what you watch.",channelId:"neptune-corporation",channelName:"Neptune Corporation™",videoUrl:"/videos/welcome.mp4",thumbnailUrl:"/images/thumbnails/welcome.jpg",duration:92,category:"technology",tags:["neptune","neptune view","announcement","technology"],language:"en",resolution:{width:1280,height:720},statistics:{views:142,likes:23,comments:7},uploadedAt:"2026-08-07T00:00:00Z",updatedAt:"2026-08-07T00:00:00Z",visibility:"public",rating:"all-ages",license:"neptune-standard"},{id:"my-first-video",title:"My First Video",description:"An example video uploaded to Neptune View™.",channelId:"example-channel",channelName:"Example Channel",videoUrl:"/videos/example.mp4",thumbnailUrl:"/images/thumbnails/example.jpg",duration:157,category:"other",tags:["first video","example"],language:"en",resolution:{width:1920,height:1080},statistics:{views:83,likes:31,comments:12},uploadedAt:"2026-08-07T00:05:00Z",updatedAt:"2026-08-07T00:05:00Z",visibility:"public",rating:"all-ages",license:"neptune-standard"},{id:"something-interesting",title:"Something Interesting",description:"Just a random example video for Neptune View™.",channelId:"example-channel",channelName:"Example Channel",videoUrl:"/videos/interesting.mp4",thumbnailUrl:"/images/thumbnails/interesting.jpg",duration:245,category:"other",tags:["random","interesting"],language:"en",resolution:{width:1280,height:720},statistics:{views:219,likes:18,comments:4},uploadedAt:"2026-08-07T00:10:00Z",updatedAt:"2026-08-07T00:10:00Z",visibility:"public",rating:"all-ages",license:"neptune-standard"}];function u(t){const e=Math.floor(t/3600),n=Math.floor(t%3600/60),a=(t%60).toString().padStart(2,"0");return e>0?`${e}:${n.toString().padStart(2,"0")}:${a}`:`${n}:${a}`}function v(t){return`${t.toLocaleString()} views`}function M(t){return new Date(t).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"})}function g(t){return[...t].sort((e,n)=>new Date(n.uploadedAt).getTime()-new Date(e.uploadedAt).getTime())}function q(t){return[...t].sort((e,n)=>n.statistics.views-e.statistics.views)}function D(t){return[...t].sort((e,n)=>n.statistics.likes-e.statistics.likes)}function F(t){return[...t].sort((e,n)=>n.statistics.comments-e.statistics.comments)}function B(t,e){return t.find(n=>n.id===e)}function O(t,e){return t.filter(n=>n.category===e)}function j(t){const e=new Set;for(const n of t)for(const s of n.tags)e.add(s);return Array.from(e).sort((n,s)=>n.localeCompare(s))}function P(){return`
         <section class="welcome-box">
 
             <div class="box-title">
@@ -121,7 +121,7 @@
             </div>
 
         </section>
-    `}function H(t){switch(t){case"popular":return q(c);case"liked":return D(c);case"commented":return F(c);default:return g(c)}}function W(t){switch(t){case"popular":return"Most Viewed";case"liked":return"Most Liked";case"commented":return"Most Commented";default:return"Latest Videos"}}function J(){const e=new URLSearchParams(window.location.search).get("sort"),n=H(e),s=W(e),a=n.map(i=>`
+    `}function W(t){switch(t){case"popular":return q(c);case"liked":return D(c);case"commented":return F(c);default:return g(c)}}function H(t){switch(t){case"popular":return"Most Viewed";case"liked":return"Most Liked";case"commented":return"Most Commented";default:return"Latest Videos"}}function J(){const e=new URLSearchParams(window.location.search).get("sort"),n=W(e),s=H(e),a=n.map(i=>`
                 <article class="video-card">
 
                     <div class="thumbnail">
@@ -375,7 +375,7 @@
                 </p>
             </div>
         </section>
-    `}function ne(t=""){const e=t.trim().toLowerCase(),n=e.length>0?c.filter(a=>{const i=a.title.toLowerCase(),l=a.description.toLowerCase(),r=a.channelName.toLowerCase(),o=a.category.toLowerCase(),R=a.tags.join(" ").toLowerCase();return i.includes(e)||l.includes(e)||r.includes(e)||o.includes(e)||R.includes(e)}):[],s=n.map(a=>`
+    `}function ne(t=""){const e=t.trim().toLowerCase(),n=e.length>0?c.filter(a=>{const i=a.title.toLowerCase(),r=a.description.toLowerCase(),d=a.channelName.toLowerCase(),o=a.category.toLowerCase(),R=a.tags.join(" ").toLowerCase();return i.includes(e)||r.includes(e)||d.includes(e)||o.includes(e)||R.includes(e)}):[],s=n.map(a=>`
                     <article class="video-card">
 
                         <a
@@ -489,7 +489,7 @@
 
                     </section>
                 `}
-    `}function ae(){const t=document.querySelector("#search-page-form"),e=document.querySelector("#search-page-input");!t||!e||t.addEventListener("submit",n=>{n.preventDefault();const s=e.value.trim(),a=encodeURIComponent(s);window.history.pushState({},"",`/search?q=${a}`),window.dispatchEvent(new Event("neptune-navigation"))})}const L="neptune-view-comments";function $(){const t=localStorage.getItem(L);if(!t)return[];try{return JSON.parse(t)}catch{return[]}}function E(t){localStorage.setItem(L,JSON.stringify(t))}function se(t){return $().filter(e=>e.videoId===t)}function ie(t,e,n,s){const a=$(),i={id:crypto.randomUUID(),videoId:t,userId:e,username:n,content:s,createdAt:new Date().toISOString()};a.push(i),E(a)}function oe(t,e){const s=$().filter(a=>!(a.id===t&&a.userId===e));E(s)}const d="example-user",T="neptune-view-video-reactions";function y(){const t=localStorage.getItem(T);if(!t)return[];try{return JSON.parse(t)}catch{return[]}}function ce(t){localStorage.setItem(T,JSON.stringify(t))}function b(t,e){const s=y().find(a=>a.userId===t&&a.videoId===e);return s||{userId:t,videoId:e,liked:!1,favorited:!1}}function U(t){const e=y(),n=e.findIndex(s=>s.userId===t.userId&&s.videoId===t.videoId);n===-1?e.push(t):e[n]=t,ce(e)}function re(t,e){return b(t,e).liked}function de(t,e){return b(t,e).favorited}function le(t,e){const n=b(t,e);n.liked=!n.liked,U(n)}function ue(t,e){const n=b(t,e);n.favorited=!n.favorited,U(n)}function ve(t){return y().filter(e=>e.userId===t&&e.favorited).map(e=>e.videoId)}function he(t){return c.filter(e=>e.id!==t.id&&e.channelId===t.channelId).slice(0,3)}function me(t){const e=B(c,t);if(!e)return`
+    `}function ae(){const t=document.querySelector("#search-page-form"),e=document.querySelector("#search-page-input");!t||!e||t.addEventListener("submit",n=>{n.preventDefault();const s=e.value.trim(),a=encodeURIComponent(s);window.history.pushState({},"",`/search?q=${a}`),window.dispatchEvent(new Event("neptune-navigation"))})}const L="neptune-view-comments";function $(){const t=localStorage.getItem(L);if(!t)return[];try{return JSON.parse(t)}catch{return[]}}function E(t){localStorage.setItem(L,JSON.stringify(t))}function se(t){return $().filter(e=>e.videoId===t)}function ie(t,e,n,s){const a=$(),i={id:crypto.randomUUID(),videoId:t,userId:e,username:n,content:s,createdAt:new Date().toISOString()};a.push(i),E(a)}function oe(t,e){const s=$().filter(a=>!(a.id===t&&a.userId===e));E(s)}const l="example-user",T="neptune-view-video-reactions";function y(){const t=localStorage.getItem(T);if(!t)return[];try{return JSON.parse(t)}catch{return[]}}function ce(t){localStorage.setItem(T,JSON.stringify(t))}function b(t,e){const s=y().find(a=>a.userId===t&&a.videoId===e);return s||{userId:t,videoId:e,liked:!1,favorited:!1}}function U(t){const e=y(),n=e.findIndex(s=>s.userId===t.userId&&s.videoId===t.videoId);n===-1?e.push(t):e[n]=t,ce(e)}function re(t,e){return b(t,e).liked}function de(t,e){return b(t,e).favorited}function le(t,e){const n=b(t,e);n.liked=!n.liked,U(n)}function ue(t,e){const n=b(t,e);n.favorited=!n.favorited,U(n)}function ve(t){return y().filter(e=>e.userId===t&&e.favorited).map(e=>e.videoId)}function he(t){return c.filter(e=>e.id!==t.id&&e.channelId===t.channelId).slice(0,3)}function me(t){const e=B(c,t);if(!e)return`
             <section class="welcome-box">
 
                 <div class="box-title">
@@ -512,7 +512,7 @@
                 </div>
 
             </section>
-        `;const n=se(e.id),s=re(d,e.id),a=de(d,e.id),i=n.slice().reverse().map(o=>`
+        `;const n=se(e.id),s=re(l,e.id),a=de(l,e.id),i=n.slice().reverse().map(o=>`
                     <article
                         class="comment"
                         data-comment-id="${o.id}"
@@ -534,7 +534,7 @@
                             ${o.content}
                         </div>
 
-                        ${o.userId===d?`
+                        ${o.userId===l?`
                                     <button
                                         type="button"
                                         class="comment-delete"
@@ -545,7 +545,7 @@
                                 `:""}
 
                     </article>
-                `).join(""),l=he(e),r=l.map(o=>`
+                `).join(""),r=he(e),d=r.map(o=>`
                 <article class="video-card">
 
                     <div class="thumbnail">
@@ -774,7 +774,7 @@
 
             </section>
 
-            ${l.length>0?`
+            ${r.length>0?`
                         <section class="video-section">
 
                             <div class="section-header">
@@ -783,14 +783,14 @@
                             </div>
 
                             <div class="video-grid">
-                                ${r}
+                                ${d}
                             </div>
 
                         </section>
                     `:""}
 
         </section>
-    `}function pe(){const t=document.querySelector("#comment-form"),e=document.querySelector("#comment-input");t&&e&&t.addEventListener("submit",s=>{s.preventDefault();const a=e.value.trim(),i=t.dataset.videoId;!a||!i||(ie(i,d,"Example User",a),window.dispatchEvent(new Event("neptune-comment-changed")))}),document.querySelectorAll("[data-delete-comment]").forEach(s=>{s.addEventListener("click",()=>{const a=s.dataset.deleteComment;a&&(oe(a,d),window.dispatchEvent(new Event("neptune-comment-changed")))})})}function ge(){const t=document.querySelector("[data-like-video]"),e=document.querySelector("[data-favorite-video]");t&&t.addEventListener("click",()=>{const n=t.dataset.likeVideo;n&&(le(d,n),window.dispatchEvent(new Event("neptune-reaction-changed")))}),e&&e.addEventListener("click",()=>{const n=e.dataset.favoriteVideo;n&&(ue(d,n),window.dispatchEvent(new Event("neptune-reaction-changed")))})}function fe(t){const e=Q(t);if(!e)return`
+    `}function pe(){const t=document.querySelector("#comment-form"),e=document.querySelector("#comment-input");t&&e&&t.addEventListener("submit",s=>{s.preventDefault();const a=e.value.trim(),i=t.dataset.videoId;!a||!i||(ie(i,l,"Example User",a),window.dispatchEvent(new Event("neptune-comment-changed")))}),document.querySelectorAll("[data-delete-comment]").forEach(s=>{s.addEventListener("click",()=>{const a=s.dataset.deleteComment;a&&(oe(a,l),window.dispatchEvent(new Event("neptune-comment-changed")))})})}function ge(){const t=document.querySelector("[data-like-video]"),e=document.querySelector("[data-favorite-video]");t&&t.addEventListener("click",()=>{const n=t.dataset.likeVideo;n&&(le(l,n),window.dispatchEvent(new Event("neptune-reaction-changed")))}),e&&e.addEventListener("click",()=>{const n=e.dataset.favoriteVideo;n&&(ue(l,n),window.dispatchEvent(new Event("neptune-reaction-changed")))})}function fe(t){const e=Q(t);if(!e)return`
             <section class="welcome-box">
 
                 <div class="box-title">
@@ -950,11 +950,11 @@
                 </div>
 
             </section>
-        `;const n=V(d,e.id),s=K(e.id),a=c.filter(r=>r.channelId===e.id),i=a.reduce((r,o)=>r+o.statistics.views,0),l=a.map(r=>`
+        `;const n=V(l,e.id),s=K(e.id),a=c.filter(d=>d.channelId===e.id),i=a.reduce((d,o)=>d+o.statistics.views,0),r=a.map(d=>`
                 <article class="channel-video-card">
 
                     <a
-                        href="/watch/${r.id}"
+                        href="/watch/${d.id}"
                         data-link
                         class="channel-video-thumbnail"
                     >
@@ -966,7 +966,7 @@
                             </span>
 
                             <span class="duration">
-                                ${u(r.duration)}
+                                ${u(d.duration)}
                             </span>
 
                         </div>
@@ -974,15 +974,15 @@
                     </a>
 
                     <a
-                        href="/watch/${r.id}"
+                        href="/watch/${d.id}"
                         data-link
                         class="video-title"
                     >
-                        ${r.title}
+                        ${d.title}
                     </a>
 
                     <div class="video-stats">
-                        ${v(r.statistics.views)}
+                        ${v(d.statistics.views)}
                     </div>
 
                 </article>
@@ -1066,7 +1066,7 @@
 
                     ${a.length>0?`
                                 <div class="video-grid">
-                                    ${l}
+                                    ${r}
                                 </div>
                             `:`
                                 <div class="empty-state">
@@ -1152,7 +1152,7 @@
             </aside>
 
         </section>
-    `}function ye(){const t=document.querySelector("[data-subscribe]");t&&t.addEventListener("click",()=>{const e=t.dataset.subscribe;if(!e)return;V(d,e)?G(d,e):Z(d,e),window.dispatchEvent(new Event("neptune-subscription-changed"))})}function xe(t){return new Date(t).toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})}function Se(t){const e=f.find(n=>n.id===t);return e?`
+    `}function ye(){const t=document.querySelector("[data-subscribe]");t&&t.addEventListener("click",()=>{const e=t.dataset.subscribe;if(!e)return;V(l,e)?G(l,e):Z(l,e),window.dispatchEvent(new Event("neptune-subscription-changed"))})}function xe(t){return new Date(t).toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})}function Se(t){const e=f.find(n=>n.id===t);return e?`
         <section class="channel-page">
 
             <div class="channel-banner">
@@ -1281,7 +1281,7 @@
                 </div>
 
             </section>
-        `}function ke(){const t=_(d),e=f.filter(i=>t.includes(i.id)),n=g(c.filter(i=>t.includes(i.channelId))),s=n.map(i=>`
+        `}function ke(){const t=_(l),e=f.filter(i=>t.includes(i.id)),n=g(c.filter(i=>t.includes(i.channelId))),s=n.map(i=>`
                     <article class="video-card">
 
                         <a
@@ -1393,7 +1393,7 @@
                     `}
 
         </section>
-    `}function Ce(){const t=ve(d),e=c.filter(s=>t.includes(s.id)),n=e.map(s=>`
+    `}function Ce(){const t=ve(l),e=c.filter(s=>t.includes(s.id)),n=e.map(s=>`
                     <article class="video-card">
 
                         <a
@@ -1579,7 +1579,7 @@
             </div>
 
         </section>
-    `}const Ne={"/":P,"/videos":J,"/channels":z,"/categories":X,"/tags":be,"/subscriptions":ke,"/favorites":Ce,"/community":ee,"/upload":te};function m(){const t=document.querySelector("#page-content");if(!t)throw new Error("Page content container not found.");const e=window.location.pathname;if(e==="/random"){if(c.length===0){t.innerHTML=Ve(),h();return}const s=Math.floor(Math.random()*c.length),a=c[s];window.history.pushState({},"",`/watch/${a.id}`),m();return}if(e==="/search"){const a=new URLSearchParams(window.location.search).get("q")??"";t.innerHTML=ne(a),ae(),h();return}if(e.startsWith("/watch/")){const s=decodeURIComponent(e.substring(7));t.innerHTML=me(s),pe(),ge(),h();return}if(e.startsWith("/categories/")){const s=decodeURIComponent(e.substring(12));t.innerHTML=fe(s),h();return}if(e.startsWith("/channels/")&&e.endsWith("/about")){const s=decodeURIComponent(e.substring(10).replace(/\/about$/,""));t.innerHTML=Se(s),h();return}if(e.startsWith("/channels/")){const s=decodeURIComponent(e.substring(10));t.innerHTML=$e(s),ye(),h();return}const n=Ne[e]??Ie;t.innerHTML=n(),h()}function Ie(){return`
+    `}const Ne={"/":P,"/videos":J,"/channels":z,"/categories":X,"/tags":be,"/subscriptions":ke,"/favorites":Ce,"/community":ee,"/upload":te};function m(){const t=document.querySelector("#page-content");if(!t)throw new Error("Page content container not found.");const e="/neptune-view",n=window.location.pathname,s=n.startsWith(e)?n.substring(e.length)||"/":n;if(s==="/random"){if(c.length===0){t.innerHTML=Ve(),h();return}const i=Math.floor(Math.random()*c.length),r=c[i];window.history.pushState({},"",`/watch/${r.id}`),m();return}if(s==="/search"){const r=new URLSearchParams(window.location.search).get("q")??"";t.innerHTML=ne(r),ae(),h();return}if(s.startsWith("/watch/")){const i=decodeURIComponent(s.substring(7));t.innerHTML=me(i),pe(),ge(),h();return}if(s.startsWith("/categories/")){const i=decodeURIComponent(s.substring(12));t.innerHTML=fe(i),h();return}if(s.startsWith("/channels/")&&s.endsWith("/about")){const i=decodeURIComponent(s.substring(10).replace(/\/about$/,""));t.innerHTML=Se(i),h();return}if(s.startsWith("/channels/")){const i=decodeURIComponent(s.substring(10));t.innerHTML=$e(i),ye(),h();return}const a=Ne[s]??Ie;t.innerHTML=a(),h()}function Ie(){return`
         <section class="welcome-box">
 
             <div class="box-title">
