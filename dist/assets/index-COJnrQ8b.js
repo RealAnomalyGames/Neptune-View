@@ -1,4 +1,4 @@
-(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))s(a);new MutationObserver(a=>{for(const i of a)if(i.type==="childList")for(const r of i.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&s(r)}).observe(document,{childList:!0,subtree:!0});function n(a){const i={};return a.integrity&&(i.integrity=a.integrity),a.referrerPolicy&&(i.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?i.credentials="include":a.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function s(a){if(a.ep)return;a.ep=!0;const i=n(a);fetch(a.href,i)}})();const c=[{id:"welcome-to-neptune-view",title:"Welcome to Neptune View",description:"Welcome to Neptune View™, a video-sharing website where you decide what you watch.",channelId:"neptune-corporation",channelName:"Neptune Corporation™",videoUrl:"/videos/welcome.mp4",thumbnailUrl:"/images/thumbnails/welcome.jpg",duration:92,category:"technology",tags:["neptune","neptune view","announcement","technology"],language:"en",resolution:{width:1280,height:720},statistics:{views:142,likes:23,comments:7},uploadedAt:"2026-08-07T00:00:00Z",updatedAt:"2026-08-07T00:00:00Z",visibility:"public",rating:"all-ages",license:"neptune-standard"},{id:"my-first-video",title:"My First Video",description:"An example video uploaded to Neptune View™.",channelId:"example-channel",channelName:"Example Channel",videoUrl:"/videos/example.mp4",thumbnailUrl:"/images/thumbnails/example.jpg",duration:157,category:"other",tags:["first video","example"],language:"en",resolution:{width:1920,height:1080},statistics:{views:83,likes:31,comments:12},uploadedAt:"2026-08-07T00:05:00Z",updatedAt:"2026-08-07T00:05:00Z",visibility:"public",rating:"all-ages",license:"neptune-standard"},{id:"something-interesting",title:"Something Interesting",description:"Just a random example video for Neptune View™.",channelId:"example-channel",channelName:"Example Channel",videoUrl:"/videos/interesting.mp4",thumbnailUrl:"/images/thumbnails/interesting.jpg",duration:245,category:"other",tags:["random","interesting"],language:"en",resolution:{width:1280,height:720},statistics:{views:219,likes:18,comments:4},uploadedAt:"2026-08-07T00:10:00Z",updatedAt:"2026-08-07T00:10:00Z",visibility:"public",rating:"all-ages",license:"neptune-standard"}];function u(t){const e=Math.floor(t/3600),n=Math.floor(t%3600/60),a=(t%60).toString().padStart(2,"0");return e>0?`${e}:${n.toString().padStart(2,"0")}:${a}`:`${n}:${a}`}function v(t){return`${t.toLocaleString()} views`}function M(t){return new Date(t).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"})}function g(t){return[...t].sort((e,n)=>new Date(n.uploadedAt).getTime()-new Date(e.uploadedAt).getTime())}function q(t){return[...t].sort((e,n)=>n.statistics.views-e.statistics.views)}function D(t){return[...t].sort((e,n)=>n.statistics.likes-e.statistics.likes)}function F(t){return[...t].sort((e,n)=>n.statistics.comments-e.statistics.comments)}function B(t,e){return t.find(n=>n.id===e)}function O(t,e){return t.filter(n=>n.category===e)}function j(t){const e=new Set;for(const n of t)for(const s of n.tags)e.add(s);return Array.from(e).sort((n,s)=>n.localeCompare(s))}function P(){return`
+(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))a(s);new MutationObserver(s=>{for(const i of s)if(i.type==="childList")for(const l of i.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&a(l)}).observe(document,{childList:!0,subtree:!0});function n(s){const i={};return s.integrity&&(i.integrity=s.integrity),s.referrerPolicy&&(i.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?i.credentials="include":s.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function a(s){if(s.ep)return;s.ep=!0;const i=n(s);fetch(s.href,i)}})();function C(t){return`/Neptune-View/${t.replace(/^\/+/,"")}`}const c=[{id:"my-first-video",title:"My First Video",description:"An example video uploaded to Neptune View™.",channelId:"example-channel",channelName:"Example Channel",videoUrl:C("media/videos/example.mp4"),thumbnailUrl:C("media/thumbnails/example.jpg"),duration:157,category:"other",tags:["first video","example"],language:"en",resolution:{width:1920,height:1080},statistics:{views:0,likes:0,comments:0},uploadedAt:"2026-08-07T00:05:00Z",updatedAt:"2026-08-07T00:05:00Z",visibility:"public",rating:"all-ages",license:"neptune-standard"}];function u(t){const e=Math.floor(t/3600),n=Math.floor(t%3600/60),s=(t%60).toString().padStart(2,"0");return e>0?`${e}:${n.toString().padStart(2,"0")}:${s}`:`${n}:${s}`}function v(t){return`${t.toLocaleString()} views`}function O(t){return new Date(t).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"})}function g(t){return[...t].sort((e,n)=>new Date(n.uploadedAt).getTime()-new Date(e.uploadedAt).getTime())}function j(t){return[...t].sort((e,n)=>n.statistics.views-e.statistics.views)}function _(t){return[...t].sort((e,n)=>n.statistics.likes-e.statistics.likes)}function W(t){return[...t].sort((e,n)=>n.statistics.comments-e.statistics.comments)}function J(t,e){return t.find(n=>n.id===e)}function Y(t,e){return t.filter(n=>n.category===e)}function G(t){const e=new Set;for(const n of t)for(const a of n.tags)e.add(a);return Array.from(e).sort((n,a)=>n.localeCompare(a))}const K="/Neptune-View";function Z(){return`
         <section class="welcome-box">
 
             <div class="box-title">
@@ -96,7 +96,7 @@
                     </div>
 
                     <a
-                        href="/watch/${n.id}"
+                        href="${K}/watch/${n.id}"
                         class="video-title"
                     >
                         ${n.title}
@@ -121,7 +121,7 @@
             </div>
 
         </section>
-    `}function W(t){switch(t){case"popular":return q(c);case"liked":return D(c);case"commented":return F(c);default:return g(c)}}function H(t){switch(t){case"popular":return"Most Viewed";case"liked":return"Most Liked";case"commented":return"Most Commented";default:return"Latest Videos"}}function J(){const e=new URLSearchParams(window.location.search).get("sort"),n=W(e),s=H(e),a=n.map(i=>`
+    `}const z="/Neptune-View";function Q(t){switch(t){case"popular":return j(c);case"liked":return _(c);case"commented":return W(c);default:return g(c)}}function X(t){switch(t){case"popular":return"Most Viewed";case"liked":return"Most Liked";case"commented":return"Most Commented";default:return"Latest Videos"}}function ee(){const e=new URLSearchParams(window.location.search).get("sort"),n=Q(e),a=X(e),s=n.map(i=>`
                 <article class="video-card">
 
                     <div class="thumbnail">
@@ -137,7 +137,7 @@
                     </div>
 
                     <a
-                        href="/watch/${i.id}"
+                        href="${z}/watch/${i.id}"
                         class="video-title"
                         data-link
                     >
@@ -168,7 +168,7 @@
 
             <div class="box-content">
 
-                <h1>${s}</h1>
+                <h1>${a}</h1>
 
                 <p>
                     Browse Neptune View™ videos in the order
@@ -224,7 +224,7 @@
 
             <div class="section-header">
 
-                ${s}
+                ${a}
 
                 <span>
                     ${n.length} videos
@@ -234,7 +234,7 @@
 
             ${n.length>0?`
                         <div class="video-grid">
-                            ${a}
+                            ${s}
                         </div>
                     `:`
                         <div class="empty-state">
@@ -250,7 +250,7 @@
                     `}
 
         </section>
-    `}const k="neptune-view-subscriptions";function p(){const t=localStorage.getItem(k);if(!t)return[];try{return JSON.parse(t)}catch{return[]}}function C(t){localStorage.setItem(k,JSON.stringify(t))}function Y(){return p()}function V(t,e){return p().some(n=>n.userId===t&&n.channelId===e)}function Z(t,e){const n=p();n.some(a=>a.userId===t&&a.channelId===e)||(n.push({userId:t,channelId:e,subscribedAt:new Date().toISOString()}),C(n))}function G(t,e){const s=p().filter(a=>!(a.userId===t&&a.channelId===e));C(s)}function _(t){return p().filter(e=>e.userId===t).map(e=>e.channelId)}const f=[{id:"neptune-corporation",userId:"neptune-corporation",name:"Neptune Corporation™",description:"Official videos, announcements, development updates, and other content from Neptune Corporation™.",avatarUrl:"/images/avatars/neptune.png",bannerUrl:"/images/banners/neptune.png",createdAt:"2026-08-01T00:00:00Z",subscribers:0},{id:"example-channel",userId:"example-user",name:"Example Channel",description:"An example Neptune View™ channel.",avatarUrl:"/images/avatars/example.png",bannerUrl:"/images/banners/example.png",createdAt:"2026-08-05T00:00:00Z",subscribers:0}];function N(t){return f.find(e=>e.id===t)}function K(t){const e=N(t);if(!e)return 0;const n=Y().filter(s=>s.channelId===t);return e.subscribers+n.length}function z(){return`
+    `}const A="neptune-view-subscriptions";function p(){const t=localStorage.getItem(A);if(!t)return[];try{return JSON.parse(t)}catch{return[]}}function T(t){localStorage.setItem(A,JSON.stringify(t))}function te(){return p()}function U(t,e){return p().some(n=>n.userId===t&&n.channelId===e)}function ne(t,e){const n=p();n.some(s=>s.userId===t&&s.channelId===e)||(n.push({userId:t,channelId:e,subscribedAt:new Date().toISOString()}),T(n))}function se(t,e){const a=p().filter(s=>!(s.userId===t&&s.channelId===e));T(a)}function ae(t){return p().filter(e=>e.userId===t).map(e=>e.channelId)}const b=[{id:"neptune-corporation",userId:"neptune-corporation",name:"Neptune Corporation™",description:"Official videos, announcements, development updates, and other content from Neptune Corporation™.",avatarUrl:"/images/avatars/neptune.png",bannerUrl:"/images/banners/neptune.png",createdAt:"2026-08-01T00:00:00Z",subscribers:0},{id:"example-channel",userId:"example-user",name:"Example Channel",description:"An example Neptune View™ channel.",avatarUrl:"/images/avatars/example.png",bannerUrl:"/images/banners/example.png",createdAt:"2026-08-05T00:00:00Z",subscribers:0}];function R(t){return b.find(e=>e.id===t)}function ie(t){const e=R(t);if(!e)return 0;const n=te().filter(a=>a.channelId===t);return e.subscribers+n.length}function oe(){return`
         <section class="welcome-box">
 
             <div class="box-title">
@@ -272,7 +272,7 @@
 
         <section class="channel-directory">
 
-            ${f.map(e=>`
+            ${b.map(e=>`
                 <a
                     href="/channels/${e.id}"
                     data-link
@@ -302,7 +302,7 @@
             `).join("")}
 
         </section>
-    `}const I=[{id:"music",name:"Music",description:"Music videos, performances, remixes, and audio."},{id:"gaming",name:"Gaming",description:"Gameplay, game development, reviews, and gaming content."},{id:"technology",name:"Technology",description:"Computers, software, programming, hardware, and technology."},{id:"entertainment",name:"Entertainment",description:"Shows, comedy, animation, and other entertainment."},{id:"education",name:"Education",description:"Tutorials, lessons, explanations, and educational content."},{id:"news",name:"News",description:"News reports, announcements, and current events."},{id:"sports",name:"Sports",description:"Sports videos, highlights, and commentary."},{id:"people",name:"People & Blogs",description:"Personal videos, vlogs, and everyday life."},{id:"other",name:"Other",description:"Videos that don't fit another category."}];function Q(t){return I.find(e=>e.id===t)}function X(){return`
+    `}const M=[{id:"music",name:"Music",description:"Music videos, performances, remixes, and audio."},{id:"gaming",name:"Gaming",description:"Gameplay, game development, reviews, and gaming content."},{id:"technology",name:"Technology",description:"Computers, software, programming, hardware, and technology."},{id:"entertainment",name:"Entertainment",description:"Shows, comedy, animation, and other entertainment."},{id:"education",name:"Education",description:"Tutorials, lessons, explanations, and educational content."},{id:"news",name:"News",description:"News reports, announcements, and current events."},{id:"sports",name:"Sports",description:"Sports videos, highlights, and commentary."},{id:"people",name:"People & Blogs",description:"Personal videos, vlogs, and everyday life."},{id:"other",name:"Other",description:"Videos that don't fit another category."}];function ce(t){return M.find(e=>e.id===t)}function re(){return`
         <section class="welcome-box">
 
             <div class="box-title">
@@ -323,7 +323,7 @@
         </section>
 
         <section class="category-grid">
-            ${I.map(e=>`
+            ${M.map(e=>`
                 <a
                     href="/categories/${e.id}"
                     data-link
@@ -341,7 +341,7 @@
                 </a>
             `).join("")}
         </section>
-    `}function ee(){return`
+    `}function de(){return`
         <section class="welcome-box">
             <div class="box-title">
                 Community
@@ -360,7 +360,7 @@
                 </p>
             </div>
         </section>
-    `}function te(){return`
+    `}function le(){return`
         <section class="welcome-box">
             <div class="box-title">
                 Upload
@@ -375,11 +375,11 @@
                 </p>
             </div>
         </section>
-    `}function ne(t=""){const e=t.trim().toLowerCase(),n=e.length>0?c.filter(a=>{const i=a.title.toLowerCase(),r=a.description.toLowerCase(),d=a.channelName.toLowerCase(),o=a.category.toLowerCase(),R=a.tags.join(" ").toLowerCase();return i.includes(e)||r.includes(e)||d.includes(e)||o.includes(e)||R.includes(e)}):[],s=n.map(a=>`
+    `}const V="/Neptune-View";function ue(t=""){const e=t.trim().toLowerCase(),n=e.length>0?c.filter(s=>{const i=s.title.toLowerCase(),l=s.description.toLowerCase(),r=s.channelName.toLowerCase(),o=s.category.toLowerCase(),H=s.tags.join(" ").toLowerCase();return i.includes(e)||l.includes(e)||r.includes(e)||o.includes(e)||H.includes(e)}):[],a=n.map(s=>`
                     <article class="video-card">
 
                         <a
-                            href="/watch/${a.id}"
+                            href="${V}/watch/${s.id}"
                             data-link
                             class="thumbnail"
                         >
@@ -389,29 +389,29 @@
                             </span>
 
                             <span class="duration">
-                                ${u(a.duration)}
+                                ${u(s.duration)}
                             </span>
 
                         </a>
 
                         <a
-                            href="/watch/${a.id}"
+                            href="${V}/watch/${s.id}"
                             data-link
                             class="video-title"
                         >
-                            ${a.title}
+                            ${s.title}
                         </a>
 
                         <a
-                            href="/channels/${a.channelId}"
+                            href="/channels/${s.channelId}"
                             data-link
                             class="video-channel"
                         >
-                            ${a.channelName}
+                            ${s.channelName}
                         </a>
 
                         <div class="video-stats">
-                            ${v(a.statistics.views)}
+                            ${v(s.statistics.views)}
                         </div>
 
                     </article>
@@ -465,7 +465,7 @@
 
                         ${n.length>0?`
                                     <div class="video-grid">
-                                        ${s}
+                                        ${a}
                                     </div>
                                 `:`
                                     <div class="empty-state">
@@ -489,7 +489,7 @@
 
                     </section>
                 `}
-    `}function ae(){const t=document.querySelector("#search-page-form"),e=document.querySelector("#search-page-input");!t||!e||t.addEventListener("submit",n=>{n.preventDefault();const s=e.value.trim(),a=encodeURIComponent(s);window.history.pushState({},"",`/search?q=${a}`),window.dispatchEvent(new Event("neptune-navigation"))})}const L="neptune-view-comments";function $(){const t=localStorage.getItem(L);if(!t)return[];try{return JSON.parse(t)}catch{return[]}}function E(t){localStorage.setItem(L,JSON.stringify(t))}function se(t){return $().filter(e=>e.videoId===t)}function ie(t,e,n,s){const a=$(),i={id:crypto.randomUUID(),videoId:t,userId:e,username:n,content:s,createdAt:new Date().toISOString()};a.push(i),E(a)}function oe(t,e){const s=$().filter(a=>!(a.id===t&&a.userId===e));E(s)}const l="example-user",T="neptune-view-video-reactions";function y(){const t=localStorage.getItem(T);if(!t)return[];try{return JSON.parse(t)}catch{return[]}}function ce(t){localStorage.setItem(T,JSON.stringify(t))}function b(t,e){const s=y().find(a=>a.userId===t&&a.videoId===e);return s||{userId:t,videoId:e,liked:!1,favorited:!1}}function U(t){const e=y(),n=e.findIndex(s=>s.userId===t.userId&&s.videoId===t.videoId);n===-1?e.push(t):e[n]=t,ce(e)}function re(t,e){return b(t,e).liked}function de(t,e){return b(t,e).favorited}function le(t,e){const n=b(t,e);n.liked=!n.liked,U(n)}function ue(t,e){const n=b(t,e);n.favorited=!n.favorited,U(n)}function ve(t){return y().filter(e=>e.userId===t&&e.favorited).map(e=>e.videoId)}function he(t){return c.filter(e=>e.id!==t.id&&e.channelId===t.channelId).slice(0,3)}function me(t){const e=B(c,t);if(!e)return`
+    `}function ve(){const t=document.querySelector("#search-page-form"),e=document.querySelector("#search-page-input");!t||!e||t.addEventListener("submit",n=>{n.preventDefault();const a=e.value.trim(),s=encodeURIComponent(a);window.history.pushState({},"",`/search?q=${s}`),window.dispatchEvent(new Event("neptune-navigation"))})}const B="neptune-view-comments";function S(){const t=localStorage.getItem(B);if(!t)return[];try{return JSON.parse(t)}catch{return[]}}function q(t){localStorage.setItem(B,JSON.stringify(t))}function he(t){return S().filter(e=>e.videoId===t)}function me(t,e,n,a){const s=S(),i={id:crypto.randomUUID(),videoId:t,userId:e,username:n,content:a,createdAt:new Date().toISOString()};s.push(i),q(s)}function pe(t,e){const a=S().filter(s=>!(s.id===t&&s.userId===e));q(a)}const d="example-user",D="neptune-view-video-reactions";function x(){const t=localStorage.getItem(D);if(!t)return[];try{return JSON.parse(t)}catch{return[]}}function fe(t){localStorage.setItem(D,JSON.stringify(t))}function $(t,e){const a=x().find(s=>s.userId===t&&s.videoId===e);return a||{userId:t,videoId:e,liked:!1,favorited:!1}}function P(t){const e=x(),n=e.findIndex(a=>a.userId===t.userId&&a.videoId===t.videoId);n===-1?e.push(t):e[n]=t,fe(e)}function ge(t,e){return $(t,e).liked}function be(t,e){return $(t,e).favorited}function $e(t,e){const n=$(t,e);n.liked=!n.liked,P(n)}function we(t,e){const n=$(t,e);n.favorited=!n.favorited,P(n)}function ye(t){return x().filter(e=>e.userId===t&&e.favorited).map(e=>e.videoId)}const Se="/Neptune-View";function xe(t){return c.filter(e=>e.id!==t.id&&e.channelId===t.channelId).slice(0,3)}function ke(t){const e=J(c,t);if(!e)return`
             <section class="welcome-box">
 
                 <div class="box-title">
@@ -512,7 +512,7 @@
                 </div>
 
             </section>
-        `;const n=se(e.id),s=re(l,e.id),a=de(l,e.id),i=n.slice().reverse().map(o=>`
+        `;const n=he(e.id),a=ge(d,e.id),s=be(d,e.id),i=n.slice().reverse().map(o=>`
                     <article
                         class="comment"
                         data-comment-id="${o.id}"
@@ -534,7 +534,7 @@
                             ${o.content}
                         </div>
 
-                        ${o.userId===l?`
+                        ${o.userId===d?`
                                     <button
                                         type="button"
                                         class="comment-delete"
@@ -545,7 +545,7 @@
                                 `:""}
 
                     </article>
-                `).join(""),r=he(e),d=r.map(o=>`
+                `).join(""),l=xe(e),r=l.map(o=>`
                 <article class="video-card">
 
                     <div class="thumbnail">
@@ -561,7 +561,7 @@
                     </div>
 
                     <a
-                        href="/watch/${o.id}"
+                        href="${Se}/watch/${o.id}"
                         class="video-title"
                         data-link
                     >
@@ -611,7 +611,7 @@
                     ·
                     ${e.statistics.comments} comments
                     ·
-                    Uploaded ${M(e.uploadedAt)}
+                    Uploaded ${O(e.uploadedAt)}
                 </div>
 
             </section>
@@ -644,18 +644,18 @@
 
                 <button
                     type="button"
-                    class="video-action-button ${s?"active":""}"
+                    class="video-action-button ${a?"active":""}"
                     data-like-video="${e.id}"
                 >
-                    ${s?"Liked":"Like"}
+                    ${a?"Liked":"Like"}
                 </button>
 
                 <button
                     type="button"
-                    class="video-action-button ${a?"active":""}"
+                    class="video-action-button ${s?"active":""}"
                     data-favorite-video="${e.id}"
                 >
-                    ${a?"Favorited":"Favorite"}
+                    ${s?"Favorited":"Favorite"}
                 </button>
 
             </div>
@@ -774,7 +774,7 @@
 
             </section>
 
-            ${r.length>0?`
+            ${l.length>0?`
                         <section class="video-section">
 
                             <div class="section-header">
@@ -783,14 +783,14 @@
                             </div>
 
                             <div class="video-grid">
-                                ${d}
+                                ${r}
                             </div>
 
                         </section>
                     `:""}
 
         </section>
-    `}function pe(){const t=document.querySelector("#comment-form"),e=document.querySelector("#comment-input");t&&e&&t.addEventListener("submit",s=>{s.preventDefault();const a=e.value.trim(),i=t.dataset.videoId;!a||!i||(ie(i,l,"Example User",a),window.dispatchEvent(new Event("neptune-comment-changed")))}),document.querySelectorAll("[data-delete-comment]").forEach(s=>{s.addEventListener("click",()=>{const a=s.dataset.deleteComment;a&&(oe(a,l),window.dispatchEvent(new Event("neptune-comment-changed")))})})}function ge(){const t=document.querySelector("[data-like-video]"),e=document.querySelector("[data-favorite-video]");t&&t.addEventListener("click",()=>{const n=t.dataset.likeVideo;n&&(le(l,n),window.dispatchEvent(new Event("neptune-reaction-changed")))}),e&&e.addEventListener("click",()=>{const n=e.dataset.favoriteVideo;n&&(ue(l,n),window.dispatchEvent(new Event("neptune-reaction-changed")))})}function fe(t){const e=Q(t);if(!e)return`
+    `}function Ce(){const t=document.querySelector("#comment-form"),e=document.querySelector("#comment-input");t&&e&&t.addEventListener("submit",a=>{a.preventDefault();const s=e.value.trim(),i=t.dataset.videoId;!s||!i||(me(i,d,"Example User",s),window.dispatchEvent(new Event("neptune-comment-changed")))}),document.querySelectorAll("[data-delete-comment]").forEach(a=>{a.addEventListener("click",()=>{const s=a.dataset.deleteComment;s&&(pe(s,d),window.dispatchEvent(new Event("neptune-comment-changed")))})})}function Ve(){const t=document.querySelector("[data-like-video]"),e=document.querySelector("[data-favorite-video]");t&&t.addEventListener("click",()=>{const n=t.dataset.likeVideo;n&&($e(d,n),window.dispatchEvent(new Event("neptune-reaction-changed")))}),e&&e.addEventListener("click",()=>{const n=e.dataset.favoriteVideo;n&&(we(d,n),window.dispatchEvent(new Event("neptune-reaction-changed")))})}const Ne="/Neptune-View";function Ie(t){const e=ce(t);if(!e)return`
             <section class="welcome-box">
 
                 <div class="box-title">
@@ -817,7 +817,7 @@
                 </div>
 
             </section>
-        `;const n=g(O(c,t)),s=n.map(a=>`
+        `;const n=g(Y(c,t)),a=n.map(s=>`
                 <article class="video-card">
 
                     <div class="thumbnail">
@@ -827,25 +827,25 @@
                         </span>
 
                         <span class="duration">
-                            ${u(a.duration)}
+                            ${u(s.duration)}
                         </span>
 
                     </div>
 
                     <a
-                        href="/watch/${a.id}"
+                        href="${Ne}/watch/${s.id}"
                         data-link
                         class="video-title"
                     >
-                        ${a.title}
+                        ${s.title}
                     </a>
 
                     <div class="video-meta">
-                        ${a.channelName}
+                        ${s.channelName}
                     </div>
 
                     <div class="video-stats">
-                        ${v(a.statistics.views)}
+                        ${v(s.statistics.views)}
                     </div>
 
                 </article>
@@ -881,7 +881,7 @@
 
             ${n.length>0?`
                         <div class="video-grid">
-                            ${s}
+                            ${a}
                         </div>
                     `:`
                         <div class="empty-state">
@@ -891,7 +891,7 @@
                     `}
 
         </section>
-    `}function be(){return`
+    `}function Le(){return`
         <section class="welcome-box">
 
             <div class="box-title">
@@ -913,7 +913,7 @@
         </section>
 
         <section class="tags-box">
-            ${j(c).map(n=>`
+            ${G(c).map(n=>`
                 <a
                     href="/search?tag=${encodeURIComponent(n)}"
                     data-link
@@ -923,7 +923,7 @@
                 </a>
             `).join("")}
         </section>
-    `}function we(t){return new Date(t).toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})}function $e(t){const e=N(t);if(e===void 0)return`
+    `}const N="/Neptune-View";function Ee(t){return new Date(t).toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})}function Ae(t){const e=R(t);if(e===void 0)return`
             <section class="welcome-box">
 
                 <div class="box-title">
@@ -950,11 +950,11 @@
                 </div>
 
             </section>
-        `;const n=V(l,e.id),s=K(e.id),a=c.filter(d=>d.channelId===e.id),i=a.reduce((d,o)=>d+o.statistics.views,0),r=a.map(d=>`
+        `;const n=U(d,e.id),a=ie(e.id),s=c.filter(r=>r.channelId===e.id),i=s.reduce((r,o)=>r+o.statistics.views,0),l=s.map(r=>`
                 <article class="channel-video-card">
 
                     <a
-                        href="/watch/${d.id}"
+                        href="${N}/watch/${r.id}"
                         data-link
                         class="channel-video-thumbnail"
                     >
@@ -966,7 +966,7 @@
                             </span>
 
                             <span class="duration">
-                                ${u(d.duration)}
+                                ${u(r.duration)}
                             </span>
 
                         </div>
@@ -974,15 +974,15 @@
                     </a>
 
                     <a
-                        href="/watch/${d.id}"
+                        href="${N}/watch/${r.id}"
                         data-link
                         class="video-title"
                     >
-                        ${d.title}
+                        ${r.title}
                     </a>
 
                     <div class="video-stats">
-                        ${v(d.statistics.views)}
+                        ${v(r.statistics.views)}
                     </div>
 
                 </article>
@@ -1013,7 +1013,7 @@
                     </h1>
 
                     <div class="subscriber-count">
-                        ${s.toLocaleString()}
+                        ${a.toLocaleString()}
                         subscribers
                     </div>
 
@@ -1064,9 +1064,9 @@
                         Videos
                     </div>
 
-                    ${a.length>0?`
+                    ${s.length>0?`
                                 <div class="video-grid">
-                                    ${r}
+                                    ${l}
                                 </div>
                             `:`
                                 <div class="empty-state">
@@ -1102,7 +1102,7 @@
                                 Videos:
                             </strong>
 
-                            ${a.length}
+                            ${s.length}
                         </div>
 
                         <div class="channel-stat">
@@ -1126,7 +1126,7 @@
                                 Joined:
                             </strong>
 
-                            ${we(e.createdAt)}
+                            ${Ee(e.createdAt)}
                         </div>
 
                     </div>
@@ -1152,7 +1152,7 @@
             </aside>
 
         </section>
-    `}function ye(){const t=document.querySelector("[data-subscribe]");t&&t.addEventListener("click",()=>{const e=t.dataset.subscribe;if(!e)return;V(l,e)?G(l,e):Z(l,e),window.dispatchEvent(new Event("neptune-subscription-changed"))})}function xe(t){return new Date(t).toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})}function Se(t){const e=f.find(n=>n.id===t);return e?`
+    `}function Te(){const t=document.querySelector("[data-subscribe]");t&&t.addEventListener("click",()=>{const e=t.dataset.subscribe;if(!e)return;U(d,e)?se(d,e):ne(d,e),window.dispatchEvent(new Event("neptune-subscription-changed"))})}function Ue(t){return new Date(t).toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})}function Re(t){const e=b.find(n=>n.id===t);return e?`
         <section class="channel-page">
 
             <div class="channel-banner">
@@ -1253,7 +1253,7 @@
                         </div>
 
                         <div class="metadata-value">
-                            ${xe(e.createdAt)}
+                            ${Ue(e.createdAt)}
                         </div>
 
                     </div>
@@ -1281,11 +1281,11 @@
                 </div>
 
             </section>
-        `}function ke(){const t=_(l),e=f.filter(i=>t.includes(i.id)),n=g(c.filter(i=>t.includes(i.channelId))),s=n.map(i=>`
+        `}const I="/Neptune-View";function Me(){const t=ae(d),e=b.filter(i=>t.includes(i.id)),n=g(c.filter(i=>t.includes(i.channelId))),a=n.map(i=>`
                     <article class="video-card">
 
                         <a
-                            href="/watch/${i.id}"
+                            href="${I}/watch/${i.id}"
                             data-link
                             class="thumbnail"
                         >
@@ -1301,7 +1301,7 @@
                         </a>
 
                         <a
-                            href="/watch/${i.id}"
+                            href="${I}/watch/${i.id}"
                             data-link
                             class="video-title"
                         >
@@ -1321,7 +1321,7 @@
                         </div>
 
                     </article>
-                `).join(""),a=e.map(i=>`
+                `).join(""),s=e.map(i=>`
                     <a
                         href="/channels/${i.id}"
                         data-link
@@ -1357,7 +1357,7 @@
                 Subscribed Channels
             </div>
 
-            ${e.length>0?a:`
+            ${e.length>0?s:`
                         <div class="empty-state">
                             You aren't subscribed
                             to any channels yet.
@@ -1374,7 +1374,7 @@
 
             ${n.length>0?`
                         <div class="video-grid">
-                            ${s}
+                            ${a}
                         </div>
                     `:`
                         <div class="empty-state">
@@ -1393,11 +1393,11 @@
                     `}
 
         </section>
-    `}function Ce(){const t=ve(l),e=c.filter(s=>t.includes(s.id)),n=e.map(s=>`
+    `}const L="/Neptune-View";function Be(){const t=ye(d),e=c.filter(a=>t.includes(a.id)),n=e.map(a=>`
                     <article class="video-card">
 
                         <a
-                            href="/watch/${s.id}"
+                            href="${L}/watch/${a.id}"
                             data-link
                             class="thumbnail"
                         >
@@ -1407,29 +1407,29 @@
                             </span>
 
                             <span class="duration">
-                                ${u(s.duration)}
+                                ${u(a.duration)}
                             </span>
 
                         </a>
 
                         <a
-                            href="/watch/${s.id}"
+                            href="${L}/watch/${a.id}"
                             data-link
                             class="video-title"
                         >
-                            ${s.title}
+                            ${a.title}
                         </a>
 
                         <a
-                            href="/channels/${s.channelId}"
+                            href="/channels/${a.channelId}"
                             data-link
                             class="video-channel"
                         >
-                            ${s.channelName}
+                            ${a.channelName}
                         </a>
 
                         <div class="video-stats">
-                            ${v(s.statistics.views)}
+                            ${v(a.statistics.views)}
                         </div>
 
                     </article>
@@ -1473,7 +1473,7 @@
                     `}
 
         </section>
-    `}function Ve(){if(c.length===0)return`
+    `}const w="/Neptune-View";function qe(){if(c.length===0)return`
             <section class="welcome-box">
 
                 <div class="box-title">
@@ -1513,7 +1513,7 @@
                 </p>
 
                 <a
-                    href="/watch/${e.id}"
+                    href="${w}/watch/${e.id}"
                     data-link
                     class="random-video-button"
                 >
@@ -1533,7 +1533,7 @@
             <div class="random-video-card">
 
                 <a
-                    href="/watch/${e.id}"
+                    href="${w}/watch/${e.id}"
                     data-link
                     class="thumbnail random-video-thumbnail"
                 >
@@ -1551,7 +1551,7 @@
                 <div class="random-video-information">
 
                     <a
-                        href="/watch/${e.id}"
+                        href="${w}/watch/${e.id}"
                         data-link
                         class="video-title"
                     >
@@ -1579,7 +1579,7 @@
             </div>
 
         </section>
-    `}const Ne={"/":P,"/videos":J,"/channels":z,"/categories":X,"/tags":be,"/subscriptions":ke,"/favorites":Ce,"/community":ee,"/upload":te};function m(){const t=document.querySelector("#page-content");if(!t)throw new Error("Page content container not found.");const e="/Neptune-View/",n=window.location.pathname,s=n.startsWith(e)?n.substring(e.length)||"/":n;if(s==="/random"){if(c.length===0){t.innerHTML=Ve(),h();return}const i=Math.floor(Math.random()*c.length),r=c[i];window.history.pushState({},"",`/watch/${r.id}`),m();return}if(s==="/search"){const r=new URLSearchParams(window.location.search).get("q")??"";t.innerHTML=ne(r),ae(),h();return}if(s.startsWith("/watch/")){const i=decodeURIComponent(s.substring(7));t.innerHTML=me(i),pe(),ge(),h();return}if(s.startsWith("/categories/")){const i=decodeURIComponent(s.substring(12));t.innerHTML=fe(i),h();return}if(s.startsWith("/channels/")&&s.endsWith("/about")){const i=decodeURIComponent(s.substring(10).replace(/\/about$/,""));t.innerHTML=Se(i),h();return}if(s.startsWith("/channels/")){const i=decodeURIComponent(s.substring(10));t.innerHTML=$e(i),ye(),h();return}const a=Ne[s]??Ie;t.innerHTML=a(),h()}function Ie(){return`
+    `}const f="/Neptune-View",De={"/":Z,"/videos":ee,"/channels":oe,"/categories":re,"/tags":Le,"/subscriptions":Me,"/favorites":Be,"/community":de,"/upload":le};function m(){const t=document.querySelector("#page-content");if(!t)throw new Error("Page content container not found.");const e=window.location.pathname,n=e.startsWith(f)?e.substring(f.length)||"/":e;if(n==="/Neptune-View/random"){if(c.length===0){t.innerHTML=qe(),h();return}const s=Math.floor(Math.random()*c.length),i=c[s];window.history.pushState({},"",`${f}/watch/${i.id}`),m();return}if(n==="/Neptune-View/search"){const i=new URLSearchParams(window.location.search).get("q")??"";t.innerHTML=ue(i),ve(),h();return}if(n.startsWith("/watch/")){const s=decodeURIComponent(n.substring(7));t.innerHTML=ke(s),Ce(),Ve(),h();return}if(n.startsWith("/categories/")){const s=decodeURIComponent(n.substring(12));t.innerHTML=Ie(s),h();return}if(n.startsWith("/channels/")&&n.endsWith("/about")){const s=decodeURIComponent(n.substring(10).replace(/\/about$/,""));t.innerHTML=Re(s),h();return}if(n.startsWith("/channels/")){const s=decodeURIComponent(n.substring(10));t.innerHTML=Ae(s),Te(),h();return}const a=De[n]??Pe;t.innerHTML=a(),h()}function Pe(){return`
         <section class="welcome-box">
 
             <div class="box-title">
@@ -1596,7 +1596,10 @@
                 </p>
 
                 <p>
-                    <a href="/" data-link>
+                    <a
+                        href="${f}/"
+                        data-link
+                    >
                         Return to Neptune View™
                     </a>
                 </p>
@@ -1604,7 +1607,7 @@
             </div>
 
         </section>
-    `}function h(){const t=window.location.pathname;document.querySelectorAll(".main-nav a").forEach(e=>{const n=e.getAttribute("href");e.classList.toggle("active",n===t)})}window.addEventListener("neptune-subscription-changed",()=>{m()});window.addEventListener("neptune-comment-changed",()=>{m()});window.addEventListener("neptune-reaction-changed",()=>{m()});window.addEventListener("neptune-navigation",()=>{m()});const A=document.querySelector("#app");if(!A)throw new Error("Application root not found.");A.innerHTML=`
+    `}function h(){const t=window.location.pathname;document.querySelectorAll(".main-nav a").forEach(e=>{const n=e.getAttribute("href");e.classList.toggle("active",n===t)})}window.addEventListener("neptune-subscription-changed",()=>{m()});window.addEventListener("neptune-comment-changed",()=>{m()});window.addEventListener("neptune-reaction-changed",()=>{m()});window.addEventListener("neptune-navigation",()=>{m()});const F=document.querySelector("#app");if(!F)throw new Error("Application root not found.");F.innerHTML=`
     <div class="site">
 
         <header class="site-header">
@@ -1771,4 +1774,4 @@
         </footer>
 
     </div>
-`;function x(){if(!document.querySelector("#page-content"))throw new Error("Page content container not found.");if(m(),!document.querySelector("#app"))throw new Error("Application root not found.")}function w(t){window.history.pushState({},"",t),x()}document.addEventListener("click",t=>{const n=t.target.closest("a[data-link]");if(!n)return;const s=n.getAttribute("href");!s||s.startsWith("#")||(t.preventDefault(),w(s))});window.addEventListener("popstate",()=>{x()});const S=document.querySelector("#search-form");S?.addEventListener("submit",t=>{t.preventDefault();const e=new FormData(S),n=String(e.get("q")??"").trim();if(!n){w("/search");return}w(`/search?q=${encodeURIComponent(n)}`)});function Le(){const t=document.querySelector("#header-search-form"),e=document.querySelector("#header-search-input");!t||!e||t.addEventListener("submit",n=>{n.preventDefault();const s=e.value.trim();s&&(window.history.pushState({},"",`/search?q=${encodeURIComponent(s)}`),window.dispatchEvent(new Event("neptune-navigation")))})}x();Le();
+`;function k(){if(!document.querySelector("#page-content"))throw new Error("Page content container not found.");if(m(),!document.querySelector("#app"))throw new Error("Application root not found.")}function y(t){window.history.pushState({},"",t),k()}document.addEventListener("click",t=>{const n=t.target.closest("a[data-link]");if(!n)return;const a=n.getAttribute("href");!a||a.startsWith("#")||(t.preventDefault(),y(a))});window.addEventListener("popstate",()=>{k()});const E=document.querySelector("#search-form");E?.addEventListener("submit",t=>{t.preventDefault();const e=new FormData(E),n=String(e.get("q")??"").trim();if(!n){y("/search");return}y(`/search?q=${encodeURIComponent(n)}`)});function Fe(){const t=document.querySelector("#header-search-form"),e=document.querySelector("#header-search-input");!t||!e||t.addEventListener("submit",n=>{n.preventDefault();const a=e.value.trim();a&&(window.history.pushState({},"",`/search?q=${encodeURIComponent(a)}`),window.dispatchEvent(new Event("neptune-navigation")))})}k();Fe();

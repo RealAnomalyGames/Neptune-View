@@ -9,6 +9,8 @@ import {
 } from "../data/videoUtils";
 import type { Video } from "../data/Video";
 
+const BASE_PATH = "/Neptune-View";
+
 function getSortedVideos(sort: string | null): Video[] {
     switch (sort) {
         case "popular":
@@ -70,7 +72,7 @@ export function Videos(): string {
                     </div>
 
                     <a
-                        href="/watch/${video.id}"
+                        href="${BASE_PATH}/watch/${video.id}"
                         class="video-title"
                         data-link
                     >

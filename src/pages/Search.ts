@@ -5,6 +5,8 @@ import {
     formatViews
 } from "../data/videoUtils";
 
+const BASE_PATH = "/Neptune-View";
+
 export function Search(
     query: string = ""
 ): string {
@@ -51,7 +53,7 @@ export function Search(
                     <article class="video-card">
 
                         <a
-                            href="/watch/${video.id}"
+                            href="${BASE_PATH}/watch/${video.id}"
                             data-link
                             class="thumbnail"
                         >
@@ -69,7 +71,7 @@ export function Search(
                         </a>
 
                         <a
-                            href="/watch/${video.id}"
+                            href="${BASE_PATH}/watch/${video.id}"
                             data-link
                             class="video-title"
                         >

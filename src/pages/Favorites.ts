@@ -13,6 +13,8 @@ import {
     formatViews
 } from "../data/videoUtils";
 
+const BASE_PATH = "/Neptune-View";
+
 export function Favorites(): string {
     const favoriteIds =
         getFavoriteVideoIds(
@@ -34,7 +36,7 @@ export function Favorites(): string {
                     <article class="video-card">
 
                         <a
-                            href="/watch/${video.id}"
+                            href="${BASE_PATH}/watch/${video.id}"
                             data-link
                             class="thumbnail"
                         >
@@ -52,7 +54,7 @@ export function Favorites(): string {
                         </a>
 
                         <a
-                            href="/watch/${video.id}"
+                            href="${BASE_PATH}/watch/${video.id}"
                             data-link
                             class="video-title"
                         >

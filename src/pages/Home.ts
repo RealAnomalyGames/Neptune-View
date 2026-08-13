@@ -5,6 +5,8 @@ import {
     getLatestVideos
 } from "../data/videoUtils";
 
+const BASE_PATH = "/Neptune-View";
+
 export function Home(): string {
     const latestVideos = getLatestVideos(videos).slice(0, 3);
 
@@ -24,7 +26,7 @@ export function Home(): string {
                     </div>
 
                     <a
-                        href="/watch/${video.id}"
+                        href="${BASE_PATH}/watch/${video.id}"
                         class="video-title"
                     >
                         ${video.title}

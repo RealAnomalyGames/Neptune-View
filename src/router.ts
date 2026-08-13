@@ -67,7 +67,7 @@ export function router(): void {
      * Random Video
      */
 
-    if (path === "/random") {
+    if (path === "/Neptune-View/random") {
         if (videos.length === 0) {
             app.innerHTML = RandomVideo();
 
@@ -99,7 +99,7 @@ export function router(): void {
      * Search
      */
 
-    if (path === "/search") {
+    if (path === "/Neptune-View/search") {
         const params =
             new URLSearchParams(
                 window.location.search

@@ -16,6 +16,8 @@ import {
     getLatestVideos
 } from "../data/videoUtils";
 
+const BASE_PATH = "/Neptune-View";
+
 export function Subscriptions(): string {
     const subscribedChannelIds =
         getSubscribedChannelIds(
@@ -47,7 +49,7 @@ export function Subscriptions(): string {
                     <article class="video-card">
 
                         <a
-                            href="/watch/${video.id}"
+                            href="${BASE_PATH}/watch/${video.id}"
                             data-link
                             class="thumbnail"
                         >
@@ -65,7 +67,7 @@ export function Subscriptions(): string {
                         </a>
 
                         <a
-                            href="/watch/${video.id}"
+                            href="${BASE_PATH}/watch/${video.id}"
                             data-link
                             class="video-title"
                         >

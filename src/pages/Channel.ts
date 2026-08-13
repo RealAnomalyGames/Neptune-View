@@ -20,6 +20,8 @@ import {
     formatViews
 } from "../data/videoUtils";
 
+const BASE_PATH = "/Neptune-View";
+
 function formatDate(date: string): string {
     return new Date(date).toLocaleDateString(
         "en-US",
@@ -95,7 +97,7 @@ export function Channel(
                 <article class="channel-video-card">
 
                     <a
-                        href="/watch/${video.id}"
+                        href="${BASE_PATH}/watch/${video.id}"
                         data-link
                         class="channel-video-thumbnail"
                     >
@@ -117,7 +119,7 @@ export function Channel(
                     </a>
 
                     <a
-                        href="/watch/${video.id}"
+                        href="${BASE_PATH}/watch/${video.id}"
                         data-link
                         class="video-title"
                     >

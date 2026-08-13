@@ -22,6 +22,8 @@ import {
     toggleFavorite
 } from "../data/videoReactions";
 
+const BASE_PATH = "/Neptune-View";
+
 function formatUploadDate(date: string): string {
     return new Date(date).toLocaleDateString(
         "en-US",
@@ -157,7 +159,7 @@ export function Watch(videoId: string): string {
                     </div>
 
                     <a
-                        href="/watch/${related.id}"
+                        href="${BASE_PATH}/watch/${related.id}"
                         class="video-title"
                         data-link
                     >

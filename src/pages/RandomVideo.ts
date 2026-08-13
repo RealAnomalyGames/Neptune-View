@@ -5,6 +5,8 @@ import {
     formatViews
 } from "../data/videoUtils";
 
+const BASE_PATH = "/Neptune-View";
+
 export function RandomVideo(): string {
     if (videos.length === 0) {
         return `
@@ -58,7 +60,7 @@ export function RandomVideo(): string {
                 </p>
 
                 <a
-                    href="/watch/${video.id}"
+                    href="${BASE_PATH}/watch/${video.id}"
                     data-link
                     class="random-video-button"
                 >
@@ -78,7 +80,7 @@ export function RandomVideo(): string {
             <div class="random-video-card">
 
                 <a
-                    href="/watch/${video.id}"
+                    href="${BASE_PATH}/watch/${video.id}"
                     data-link
                     class="thumbnail random-video-thumbnail"
                 >
@@ -98,7 +100,7 @@ export function RandomVideo(): string {
                 <div class="random-video-information">
 
                     <a
-                        href="/watch/${video.id}"
+                        href="${BASE_PATH}/watch/${video.id}"
                         data-link
                         class="video-title"
                     >

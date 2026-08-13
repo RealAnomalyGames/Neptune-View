@@ -10,6 +10,8 @@ import {
 } from "../data/videoUtils";
 import type { VideoCategory } from "../data/Video";
 
+const BASE_PATH = "/Neptune-View";
+
 export function Category(
     categoryId: string
 ): string {
@@ -74,7 +76,7 @@ export function Category(
                     </div>
 
                     <a
-                        href="/watch/${video.id}"
+                        href="${BASE_PATH}/watch/${video.id}"
                         data-link
                         class="video-title"
                     >
