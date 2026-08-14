@@ -4,7 +4,10 @@ import { Videos } from "./pages/Videos";
 import { Channels } from "./pages/Channels";
 import { Categories } from "./pages/Categories";
 import { Community } from "./pages/Community";
-import { Upload } from "./pages/Upload";
+import {
+    Upload,
+    setupUploadEvents
+} from "./pages/Upload";
 import {
     Search,
     setupSearchEvents
@@ -24,6 +27,14 @@ import { ChannelAbout } from "./pages/ChannelAbout";
 import { Subscriptions } from "./pages/Subscriptions";
 import { Favorites } from "./pages/Favorites";
 import { RandomVideo } from "./pages/RandomVideo";
+import {
+    MyVideos,
+    setupMyVideosEvents
+} from "./pages/MyVideos";
+import {
+    EditVideo,
+    setupEditVideoEvents
+} from "./pages/EditVideo";
 
 type Page = () => string;
 
@@ -67,7 +78,7 @@ export function router(): void {
      * Random Video
      */
 
-    if (path === "/Neptune-View/random") {
+    if (path === "/random") {
         if (videos.length === 0) {
             app.innerHTML = RandomVideo();
 
@@ -95,11 +106,21 @@ export function router(): void {
         return;
     }
 
+    if (path === "/upload") {
+        app.innerHTML = Upload();
+
+        setupUploadEvents();
+
+        updateActiveNavigation();
+
+        return;
+    }
+
     /*
      * Search
      */
 
-    if (path === "/Neptune-View/search") {
+    if (path === "/search") {
         const params =
             new URLSearchParams(
                 window.location.search
@@ -215,6 +236,34 @@ export function router(): void {
     /*
      * Standard pages
      */
+    if (path.startsWith("/edit-video/")) {
+        const videoId =
+            decodeURIComponent(
+                path.substring(
+                    "/edit-video/".length
+                )
+            );
+
+        app.innerHTML =
+            EditVideo(videoId);
+
+        setupEditVideoEvents();
+
+        updateActiveNavigation();
+
+        return;
+    }
+
+    if (path === "/my-videos") {
+        app.innerHTML =
+            MyVideos();
+
+        setupMyVideosEvents();
+
+        updateActiveNavigation();
+
+        return;
+    }
 
     const page =
         routes[path] ?? NotFound;

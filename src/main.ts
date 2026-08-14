@@ -66,6 +66,7 @@ app.innerHTML = `
             <a href="/subscriptions"data-link>Subscriptions</a>
             <a href="/favorites"data-link>Favorites</a>
             <a href="/upload" data-link>Upload</a>
+            <a href="/my-videos"data-link>My Videos</a>
         </nav>
 
         <div class="search-bar">
